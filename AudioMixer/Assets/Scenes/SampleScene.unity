@@ -463,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1539213144}
+  _toggle: {fileID: 147093187}
 --- !u!114 &147093187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324797195}
   - component: {fileID: 324797196}
+  - component: {fileID: 324797197}
   m_Layer: 5
   m_Name: SliderButtonVovume
   m_TagString: Untagged
@@ -688,8 +690,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 371069471}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 324797197}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
         m_MethodName: ChangeButtonVolume
         m_Mode: 0
         m_Arguments:
@@ -700,6 +702,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &324797197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324797194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6680c64997e5f4fbc82bb1092806db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerGroup: {fileID: -7900065633017906228, guid: 0880cdacc3454fb44ba53a22c64dd19b, type: 2}
+  _mainSlider: {fileID: 0}
+  _musicSlider: {fileID: 0}
+  _buttonSlider: {fileID: 0}
 --- !u!1 &347604287
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +766,7 @@ GameObject:
   - component: {fileID: 371069470}
   - component: {fileID: 371069469}
   - component: {fileID: 371069471}
+  - component: {fileID: 371069472}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -831,10 +850,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 371069467}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4f2ed11d0ecdc498c1280b15f3e043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerGroup: {fileID: 24300002, guid: 0880cdacc3454fb44ba53a22c64dd19b, type: 2}
+  _toggle: {fileID: 1033844421}
+--- !u!114 &371069472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371069467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc6680c64997e5f4fbc82bb1092806db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mixerGroup: {fileID: 24300002, guid: 0880cdacc3454fb44ba53a22c64dd19b, type: 2}
+  _mainSlider: {fileID: 469501672}
+  _musicSlider: {fileID: 1185203992}
+  _buttonSlider: {fileID: 324797196}
 --- !u!1 &388234872
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +1009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469501671}
   - component: {fileID: 469501672}
+  - component: {fileID: 469501673}
   m_Layer: 5
   m_Name: SliderMainVovume
   m_TagString: Untagged
@@ -1053,8 +1090,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 371069471}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 469501673}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
         m_MethodName: ChangeMainVolume
         m_Mode: 0
         m_Arguments:
@@ -1065,6 +1102,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &469501673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469501670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6680c64997e5f4fbc82bb1092806db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerGroup: {fileID: 24300002, guid: 0880cdacc3454fb44ba53a22c64dd19b, type: 2}
+  _mainSlider: {fileID: 0}
+  _musicSlider: {fileID: 0}
+  _buttonSlider: {fileID: 0}
 --- !u!1 &505648274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,6 +1727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 388234874}
+  _toggle: {fileID: 1020189780}
 --- !u!114 &1020189780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,8 +1873,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 371069471}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainVolumeSwitch, Assembly-CSharp
         m_MethodName: ToggleMasterMusic
         m_Mode: 0
         m_Arguments:
@@ -2127,6 +2181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185203991}
   - component: {fileID: 1185203992}
+  - component: {fileID: 1185203993}
   m_Layer: 5
   m_Name: SliderAmbientVovume
   m_TagString: Untagged
@@ -2207,8 +2262,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 371069471}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 1185203993}
+        m_TargetAssemblyTypeName: VolumeMixer, Assembly-CSharp
         m_MethodName: ChangeAmbientVolume
         m_Mode: 0
         m_Arguments:
@@ -2219,6 +2274,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1185203993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185203990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6680c64997e5f4fbc82bb1092806db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerGroup: {fileID: 8351400022932484094, guid: 0880cdacc3454fb44ba53a22c64dd19b, type: 2}
+  _mainSlider: {fileID: 0}
+  _musicSlider: {fileID: 0}
+  _buttonSlider: {fileID: 0}
 --- !u!1 &1198479934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1992328004}
+  _toggle: {fileID: 1198479937}
 --- !u!114 &1198479937
 MonoBehaviour:
   m_ObjectHideFlags: 0
