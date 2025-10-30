@@ -2,47 +2,52 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class SliderData
+{
+    public string volumeParameter;  
+    public Slider slider;         
+}
+
 public class VolumeMixer : MonoBehaviour
 {
     [Header("Mixer Settings")]
     [SerializeField] private AudioMixerGroup _mixerGroup;
 
-    [Header("UI Sliders")]
-    [SerializeField] private Slider _mainSlider;
-    [SerializeField] private Slider _musicSlider;
-    [SerializeField] private Slider _buttonSlider;
+    [Header("Volume Sliders")]
+    [SerializeField] private SliderData[] _sliders;
+
+    private const float MuteDB = -80f;
+    private const float MinVolume = 0.0001f;
+    private const float MaxVolume = 1f;
+    private const float AmplitudeRatio = 20f;
 
     private void Awake()
     {
-        if (_mainSlider)
-            _mainSlider.onValueChanged.AddListener(value => ChangeVolume("MasterVolume", value));
-
-        if (_musicSlider)
-            _musicSlider.onValueChanged.AddListener(value => ChangeVolume("MusicVolume", value));
-
-        if (_buttonSlider)
-            _buttonSlider.onValueChanged.AddListener(value => ChangeVolume("ButtonVolume", value));
+        foreach (var slider in _sliders)
+        {
+            if (slider.slider)
+                slider.slider.onValueChanged.AddListener(value => ChangeVolume(slider.volumeParameter, value));
+        }
     }
 
     private void OnDestroy()
     {
-        if (_mainSlider)
-            _mainSlider.onValueChanged.RemoveAllListeners();
-
-        if (_musicSlider)
-            _musicSlider.onValueChanged.RemoveAllListeners();
-
-        if (_buttonSlider)
-            _buttonSlider.onValueChanged.RemoveAllListeners();
+        foreach (var s in _sliders)
+        {
+            if (s.slider)
+                s.slider.onValueChanged.RemoveAllListeners();
+        }
     }
 
     private void ChangeVolume(string name, float volume)
     {
-        float minVolume = 0.0001f;
-        float maxVolume =1f;
-        int amplitudeRatio = 20;
+        volume = Mathf.Clamp(volume, MinVolume, MaxVolume);
 
-        volume = Mathf.Clamp(volume, minVolume, maxVolume);
-        _mixerGroup.audioMixer.SetFloat(name, Mathf.Log10(volume) * amplitudeRatio);
+        float dbValue = Mathf.Log10(volume) * AmplitudeRatio;
+        if (volume <= MinVolume)
+            dbValue = MuteDB;
+
+        _mixerGroup.audioMixer.SetFloat(name, dbValue);
     }
 }

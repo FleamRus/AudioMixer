@@ -8,8 +8,8 @@ public class MainVolumeSwitch : MonoBehaviour
     [SerializeField] private Toggle _toggle;
 
     private int _maxVolume = 0; 
-    private int _minVolume = -80; 
-
+    private int _minVolume = -80;
+    private string _volumeOfMaster = "MasterVolume";
     private void Awake()
     {
         _toggle.onValueChanged.AddListener(ToggleMasterMusic);
@@ -23,9 +23,9 @@ public class MainVolumeSwitch : MonoBehaviour
     public void ToggleMasterMusic(bool enable)
     {
         if (enable)
-            _mixerGroup.audioMixer.SetFloat("MasterVolume", _maxVolume);
+            _mixerGroup.audioMixer.SetFloat(_volumeOfMaster, _maxVolume);
         else
-            _mixerGroup.audioMixer.SetFloat("MasterVolume", _minVolume);
+            _mixerGroup.audioMixer.SetFloat(_volumeOfMaster, _minVolume);
     }
 }
 
