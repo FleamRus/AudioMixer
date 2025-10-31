@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonMusicPlay : MonoBehaviour
+public class ToggleMusicPlay : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private Toggle _toggle;
